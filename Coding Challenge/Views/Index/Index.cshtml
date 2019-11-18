@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<div class="form-group">
+    <select class="input-type form-control" name="users" id="userSelect">
+        <option value=0>--</option>
+    </select>
+</div>
+<div id="tableContent">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Project ID</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">Time to Start</th>
+                <th scope="col">End Date</th>
+                <th scope="col">Credits</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody id="dataRow">
+           
+        </tbody>
+    </table>
+</div>
