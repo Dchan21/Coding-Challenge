@@ -28,18 +28,9 @@
                 $.each(result, function (index, object) {
                     console.log(object);
                     let tr = document.createElement('tr');
-                    var isActive;
-                    var Start;
-                    if (object.TimeToStart==-1) {
-                        Start = 'Started';
-                    } else {
-                        Start = 'Waiting';
-                    }
-                    if (object.IsActive) {
-                        isActive = 'Active';
-                    } else {
-                        isActive = 'Inactive';
-                    }
+                    var isActive = Active(object.IsActive);
+                    var Start = TimeStarted(object.TimeToStart);
+                   
                     info.dataTable.append(
                         `<tr>
                             <th>${object.Id}</th>
@@ -57,9 +48,23 @@
 
     info.select.on('change',function () {
         console.log(this.value);
-        info.dataTable.empty();;
+        info.dataTable.empty();
         PrintTable(this.value);
     });
-    
+    function Active(active) {
+        if (active) {
+            return 'Active';
+        } else {
+            return 'Inactive';
+        }
+    }
+    function TimeStarted(started) {
+        if (started== -1) {
+            return 'Started';
+        } else {
+            return 'Waiting';
+        }
+    }
+   
 });
 
